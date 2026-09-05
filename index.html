@@ -1,188 +1,139 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>YAN1</title>
+```
+<title>YAN1</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+<style>
+    * {
+        box-sizing: border-box;
+    }
 
-        body {
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: Arial, Helvetica, sans-serif;
-            background:
-                radial-gradient(circle at top left, #1e3a8a 0%, transparent 35%),
-                radial-gradient(circle at bottom right, #7c3aed 0%, transparent 35%),
-                #080b12;
-            overflow: hidden;
-        }
+    body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, Helvetica, sans-serif;
+        background:
+            radial-gradient(circle at top left, #1e3a8a 0%, transparent 35%),
+            radial-gradient(circle at bottom right, #7c3aed 0%, transparent 35%),
+            #080b12;
+        overflow: hidden;
+    }
 
-        .container {
-            text-align: center;
-            padding: 30px;
-        }
+    .container {
+        text-align: center;
+        padding: 30px;
+    }
 
-        .title {
-            color: white;
-            font-size: clamp(42px, 8vw, 90px);
-            font-weight: 800;
-            letter-spacing: 8px;
-            margin-bottom: 15px;
-        }
+    .title {
+        color: white;
+        font-size: clamp(42px, 8vw, 90px);
+        font-weight: 800;
+        letter-spacing: 8px;
+        margin-bottom: 15px;
+    }
 
-        .subtitle {
-            color: #aeb8c8;
-            font-size: 18px;
-            margin-bottom: 45px;
-        }
+    .subtitle {
+        color: #aeb8c8;
+        font-size: 18px;
+        margin-bottom: 45px;
+    }
 
-        .buttons {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-        }
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
 
-        .connect-btn,
-        .kosmi-btn {
-            position: relative;
-            border: none;
-            border-radius: 18px;
-            padding: 28px 85px;
-            font-size: clamp(24px, 4vw, 38px);
-            font-weight: 800;
-            letter-spacing: 4px;
-            color: white;
-            cursor: pointer;
-            transition: 0.25s ease;
-        }
+    .connect-btn,
+    .kosmi-btn {
+        position: relative;
+        border: none;
+        border-radius: 18px;
+        padding: 28px 85px;
+        font-size: clamp(24px, 4vw, 38px);
+        font-weight: 800;
+        letter-spacing: 4px;
+        color: white;
+        cursor: pointer;
+        transition: 0.25s ease;
+    }
 
-        /* CONNECT BUTTON */
+    .connect-btn {
+        background: linear-gradient(135deg, #2563eb, #7c3aed);
+        box-shadow:
+            0 15px 40px rgba(37, 99, 235, 0.35),
+            0 0 0 1px rgba(255, 255, 255, 0.15);
+    }
 
-        .connect-btn {
-            background: linear-gradient(135deg, #2563eb, #7c3aed);
-            box-shadow:
-                0 15px 40px rgba(37, 99, 235, 0.35),
-                0 0 0 1px rgba(255, 255, 255, 0.15);
-        }
+    .connect-btn:hover {
+        transform: translateY(-5px) scale(1.03);
+    }
 
-        .connect-btn:hover {
-            transform: translateY(-5px) scale(1.03);
-            box-shadow:
-                0 25px 55px rgba(124, 58, 237, 0.5),
-                0 0 30px rgba(37, 99, 235, 0.4);
-        }
+    .kosmi-btn {
+        background: linear-gradient(135deg, #ec4899, #f97316);
+        box-shadow:
+            0 15px 40px rgba(236, 72, 153, 0.30),
+            0 0 0 1px rgba(255, 255, 255, 0.15);
+    }
 
-        .connect-btn:active {
-            transform: translateY(0) scale(0.98);
-        }
+    .kosmi-btn:hover {
+        transform: translateY(-5px) scale(1.03);
+    }
 
-        .connect-btn::after {
-            content: "";
-            position: absolute;
-            inset: -3px;
-            border-radius: 21px;
-            background: linear-gradient(90deg, #38bdf8, #8b5cf6, #ec4899);
-            z-index: -1;
-            opacity: 0;
-            filter: blur(12px);
-            transition: 0.25s ease;
-        }
-
-        .connect-btn:hover::after {
-            opacity: 0.8;
-        }
-
-
-        /* KOSMI BUTTON */
-
-        .kosmi-btn {
-            background: linear-gradient(135deg, #ec4899, #f97316);
-            box-shadow:
-                0 15px 40px rgba(236, 72, 153, 0.30),
-                0 0 0 1px rgba(255, 255, 255, 0.15);
-        }
-
-        .kosmi-btn:hover {
-            transform: translateY(-5px) scale(1.03);
-            box-shadow:
-                0 25px 55px rgba(249, 115, 22, 0.45),
-                0 0 30px rgba(236, 72, 153, 0.40);
-        }
-
-        .kosmi-btn:active {
-            transform: translateY(0) scale(0.98);
-        }
-
-        .kosmi-btn::after {
-            content: "";
-            position: absolute;
-            inset: -3px;
-            border-radius: 21px;
-            background: linear-gradient(90deg, #f472b6, #fb923c, #facc15);
-            z-index: -1;
-            opacity: 0;
-            filter: blur(12px);
-            transition: 0.25s ease;
-        }
-
-        .kosmi-btn:hover::after {
-            opacity: 0.8;
-        }
-
-    </style>
+</style>
+```
 
 </head>
 
 <body>
 
-    <div class="container">
+```
+<div class="container">
 
-        <div class="title">YAN1</div>
+    <div class="title">YAN1</div>
 
-        <div class="subtitle">
-            Where Everything Meets
-        </div>
+    <div class="subtitle">
+        Where Everything Meets
+    </div>
 
-        <div class="buttons">
+    <div class="buttons">
 
-            <button class="connect-btn" onclick="connect()">
-                CONNECT
-            </button>
+        <button class="connect-btn" onclick="connect()">
+            CONNECT
+        </button>
 
-            <button class="kosmi-btn" onclick="kosmi()">
-                KOSMI
-            </button>
-
-        </div>
+        <button class="kosmi-btn" onclick="kosmi()">
+            KOSMI
+        </button>
 
     </div>
 
+</div>
 
-    <script>
+<script>
 
-        function connect() {
-            window.location.href =
-                "https://yan1website.github.io/RamisettiManojKumarLaw.in/index2.html";
-        }
+    function connect() {
+        window.location.href =
+            "https://yan1website.github.io/RamisettiManojKumarLaw.in/index2.html";
+    }
 
+    function kosmi() {
+        window.location.href =
+            "https://app.kosmi.io/room/@yan1website";
+    }
 
-        function kosmi() {
-            window.location.href =
-                "https://kosmi.io/";
-        }
-
-    </script>
+</script>
+```
 
 </body>
-
 </html>
