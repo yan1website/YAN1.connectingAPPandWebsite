@@ -55,7 +55,8 @@
     }
 
     .connect-btn,
-    .kosmi-btn {
+    .kosmi-btn,
+    .testing-btn {
         position: relative;
         border: none;
         border-radius: 18px;
@@ -90,6 +91,25 @@
         transform: translateY(-5px) scale(1.03);
     }
 
+    .testing-btn {
+        background: linear-gradient(135deg, #10b981, #06b6d4);
+        box-shadow:
+            0 15px 40px rgba(16, 185, 129, 0.30),
+            0 0 0 1px rgba(255, 255, 255, 0.15);
+    }
+
+    .testing-btn:hover {
+        transform: translateY(-5px) scale(1.03);
+    }
+
+    @media (max-width: 600px) {
+        .connect-btn,
+        .kosmi-btn,
+        .testing-btn {
+            width: 90vw;
+            padding: 24px 20px;
+        }
+    }
 </style>
 ```
 
@@ -116,6 +136,10 @@
             KOSMI
         </button>
 
+        <button class="testing-btn" onclick="testing()">
+            TESTING
+        </button>
+
     </div>
 
 </div>
@@ -130,6 +154,11 @@
     function kosmi() {
         window.location.href =
             "https://app.kosmi.io/room/@yan1website";
+    }
+
+    function testing() {
+        window.location.href =
+            "https://yan-shun-081.github.io/testing1/";
     }
 
 </script>
